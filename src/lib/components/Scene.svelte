@@ -1,7 +1,11 @@
 <script>
   import { T } from '@threlte/core'
-  import { ContactShadows, Float, Grid} from '@threlte/extras'
+  import { ContactShadows, Float, Grid, ImageMaterial, HTML} from '@threlte/extras'
 </script>
+
+<HTML center>
+  <h1 style="color: red;">Hello World</h1>
+</HTML>
 
 <T.PerspectiveCamera
   makeDefault
@@ -10,7 +14,7 @@
   on:create={({ ref }) => {
     ref.lookAt(0, 1, 0)
   }}
-></T.PerspectiveCamera>
+/>
 
 <T.DirectionalLight
   intensity={0.8}
@@ -38,6 +42,6 @@
 <Float floatIntensity={0.5} floatingRange={[0,1]}>
   <T.Mesh position={[0, 1, 0]}>
     <T.BoxGeometry />
-    <T.MeshStandardMaterial color="#BCFF00"/>
+    <ImageMaterial url="/rainbowcat.jpg"/>
   </T.Mesh>
 </Float>
