@@ -3,10 +3,6 @@
   import { ContactShadows, Float, Grid, ImageMaterial, HTML} from '@threlte/extras'
 </script>
 
-<HTML center>
-  <h1 style="color: red;">Hello World</h1>
-</HTML>
-
 <T.PerspectiveCamera
   makeDefault
   position={[-10, 10, 10]}
