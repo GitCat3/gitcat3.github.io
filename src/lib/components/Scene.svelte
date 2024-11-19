@@ -1,6 +1,6 @@
 <script>
   import { T } from '@threlte/core'
-  import { ContactShadows, Float, Grid, ImageMaterial, HTML} from '@threlte/extras'
+  import { ContactShadows, Float, Grid, ImageMaterial} from '@threlte/extras'
 </script>
 
 <T.PerspectiveCamera

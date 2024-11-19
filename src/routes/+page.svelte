@@ -2,11 +2,8 @@
   import App from '$lib/components/App.svelte'
 </script>
 
-<div id="kill-me">
+<div>
   <App />
-    <div id="kill-me-again">
-      <h1>kill me</h1>
-    </div>
 </div>
 
 <style>
@@ -14,8 +11,7 @@
     margin: 0;
   }
 
-  #kill-me {
-    position: relative;
+  div {
     width: 100vw;
     height: 100vh;
     background: rgb(13, 19, 32);
