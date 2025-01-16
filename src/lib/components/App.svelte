@@ -1,6 +1,12 @@
 <script>
   import { Canvas } from '@threlte/core';
   import Scene from './Scene.svelte';
+  import { fade } from 'svelte/transition';
+  import { onMount } from 'svelte';
+  let showOverlay = false;
+  onMount(() => {
+    showOverlay = true;
+  });
 </script>
 
 <section>
@@ -10,9 +16,11 @@
     </Canvas>
   </div>
 
-  <div id="canvas-overlay">
-    <p style="color: red;">This is my scene!</p>
-  </div>
+  {#if showOverlay}
+    <div id="canvas-overlay" in:fade={{ duration: 2000, delay: 2000 }}>
+      <p style="color: red;">This is my scene!</p>
+    </div>
+  {/if}
 </section>
 
 <style lang="scss">
