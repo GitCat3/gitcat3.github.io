@@ -8,6 +8,9 @@
     showOverlay = true;
   });
 </script>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
 
 <section>
   <div id="canvas">
@@ -17,10 +20,15 @@
   </div>
 
   {#if showOverlay}
-    <div id="canvas-overlay" in:fade={{ duration: 2000, delay: 2000 }}>
-      <p style="color: red;">This is my scene!</p>
+    <div id="canvas-overlay1" in:fade={{ duration: 2000, delay: 2000 }}>
+      <p style="color: white; font-size: 40px; font-family: Lato, serif;">This is my scene!</p>
     </div>
   {/if}
+  <div id="canvas-overlay2">
+    <a href="https://github.com/GitCat3/" target="_blank" rel="noopener noreferrer">
+      <img src="github.png" alt="GitCat3's Github page" width=64 height=64 style="transition: transform 0.3s ease;"/>
+    </a>
+  </div>
 </section>
 
 <style lang="scss">
@@ -28,12 +36,20 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    #canvas-overlay {
+    #canvas-overlay1 {
       position: absolute;
       top: 10%;
-      left: 10%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      color: red;
+    }
+    #canvas-overlay2 {
+      position: absolute;
+      top: 95%;
+      left: 95%;
+      transform: translate(-50%, -50%);
+        img:hover {
+          transform: scale(1.2);
+        }
     }
     #canvas {
       width: 100%;
