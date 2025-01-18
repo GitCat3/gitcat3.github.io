@@ -35,7 +35,7 @@
   opacity={0.5}
 />
 
-<Float floatIntensity={0.5} floatingRange={[0,1]}>
+<Float floatIntensity={0.5} floatingRange={[0,1]} speed={2}>
   <T.Mesh position={[0, 1, 0]}>
     <T.BoxGeometry />
     <ImageMaterial url="/rainbowcat.jpg"/>
