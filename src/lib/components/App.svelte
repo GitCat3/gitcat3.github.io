@@ -33,23 +33,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
-<section>
-  <div id="canvas">
-    <Canvas>
-      <Scene />
-    </Canvas>
-  </div>
-  <div id="canvas-overlay1">
-    <p id="welcometext">
-      Welcome To Your Next {displayText}
-    </p>
-  </div>
-  <div id="canvas-overlay2">
-    <a href="https://github.com/GitCat3/" target="_blank" rel="noopener noreferrer">
-      <img src="github.png" alt="GitCat3's Github page" width=64 height=64 style="transition: transform 0.3s ease;" />
-    </a>
-  </div>
-</section>
+<body style="background-color: rgb(11, 16, 28);">
+  <section>
+    <div id="canvas">
+      <Canvas>
+        <Scene />
+      </Canvas>
+    </div>
+    <div id="canvas-overlay1">
+      <p id="welcometext">
+        Welcome To Your Next {displayText}
+      </p>
+    </div>
+    <div id="canvas-overlay-github-button">
+      <a href="https://github.com/GitCat3/" target="_blank" rel="noopener noreferrer">
+        <img src="github.png" alt="GitCat3's Github page" width=64 height=64 style="transition: transform 0.3s ease;" />
+      </a>
+    </div>
+  </section>
+  <p align="center" style="background: rgba(0,0,0,0); color: white; margin: 0;">hlep me</p>
+</body>
 
 <style lang="scss">
   section {
@@ -64,8 +67,8 @@
       transform: translate(-50%, -50%);
     }
 
-    #canvas-overlay2 {
-      position: absolute;
+    #canvas-overlay-github-button {
+      position: fixed;
       top: 95%;
       left: 95%;
       transform: translate(-50%, -50%);
@@ -79,6 +82,7 @@
       width: 100%;
       height: 100%;
       display: block;
+      position: fixed;
     }
   }
 
