@@ -1,6 +1,12 @@
 <script>
   import { T } from '@threlte/core'
   import { ContactShadows, Float, Grid, ImageMaterial} from '@threlte/extras'
+  function updateCamera(ev) {
+    let div1 = document.getElementById("div1");
+    camera.position.x = 10 - window.scrollY / 500.0;
+    camera.position.z = 10 - window.scrollY / 500.0;
+  }
+  window.addEventListener("scroll", updateCamera);
 </script>
 
 <T.PerspectiveCamera

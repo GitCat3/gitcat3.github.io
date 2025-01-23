@@ -51,7 +51,7 @@
       </a>
     </div>
   </section>
-  <p align="center" style="background: rgba(0,0,0,0); color: white; margin: 0;">hlep me</p>
+  <h1><p align="center" style="background: rgba(0,0,0,0); color: white; margin: 0;">hlep me</p></h1>
 </body>
 
 <style lang="scss">
