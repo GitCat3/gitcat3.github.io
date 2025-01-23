@@ -57,7 +57,7 @@
 <style lang="scss">
   section {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 
     #canvas-overlay1 {
@@ -95,7 +95,7 @@
   }
 
   #welcometext::after {
-    content: ""; /* Create the cursor */
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -112,5 +112,9 @@
     50% {
       opacity: 0;
     }
+  }
+  body {
+    margin: 0;
+    overflow-x: hidden;
   }
 </style>
