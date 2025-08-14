@@ -2,12 +2,13 @@
   import { Canvas } from '@threlte/core';
   import Scene from './Scene.svelte';
   import { onMount } from 'svelte';
+  import ChevronsDown from 'lucide-svelte/icons/chevrons-down';
 
   let displayText = "";
   let index = 0;
   let isDeleting = false;
   let charIndex = 0;
-  const texts = ["Website", "Minecraft Mod", "Desktop Application", "Other Random Coding Project"];
+  const texts = ["Websites", "Minecraft Mods", "Desktop Apps", "Other Random Coding Projects"];
 
   function typeEffect() {
     const currentText = texts[index];
@@ -31,6 +32,7 @@
 
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <title>GitCat3's Awesome Website</title>
 </head>
 
 <body style="background-color: rgb(11, 16, 28);">
@@ -42,7 +44,7 @@
     </div>
     <div id="canvas-overlay1">
       <p id="welcometext">
-        Welcome To Your Next {displayText}
+        I Make {displayText}
       </p>
     </div>
     <div id="canvas-overlay-github-button">
@@ -50,8 +52,13 @@
         <img src="github.png" alt="GitCat3's Github page" width=64 height=64 style="transition: transform 0.3s ease;" />
       </a>
     </div>
+    <div id="canvas-overlay-chevrons-down">
+      <ChevronsDown size=90px color="#a60000"/>
+    </div>
   </section>
-  <h1><p align="center" style="background: rgba(0,0,0,0); color: white; margin: 0;">hlep me</p></h1>
+  <h1 style="text-align: center; background: transparent; color: grey; margin: 50px 200px; position: relative;" >
+    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+  </h1>
 </body>
 
 <style lang="scss">
@@ -76,6 +83,13 @@
       img:hover {
         transform: scale(1.2);
       }
+    }
+
+    #canvas-overlay-chevrons-down {
+      position: absolute;
+      top: 95%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     #canvas {
@@ -113,6 +127,7 @@
       opacity: 0;
     }
   }
+
   body {
     margin: 0;
     overflow-x: hidden;

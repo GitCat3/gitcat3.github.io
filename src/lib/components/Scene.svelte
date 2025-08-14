@@ -1,12 +1,21 @@
 <script>
   import { T } from '@threlte/core'
   import { ContactShadows, Float, Grid, ImageMaterial} from '@threlte/extras'
-  function updateCamera(ev) {
-    let div1 = document.getElementById("div1");
-    camera.position.x = 10 - window.scrollY / 500.0;
-    camera.position.z = 10 - window.scrollY / 500.0;
+  import { onMount } from 'svelte';
+    import { randInt } from 'three/src/math/MathUtils.js';
+  let y = 0;
+
+  let maxScroll = 0;
+
+  function updateMaxScroll() {
+    maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   }
-  window.addEventListener("scroll", updateCamera);
+
+  onMount(() => {
+    updateMaxScroll();
+    window.addEventListener('resize', updateMaxScroll);
+    return () => window.removeEventListener('resize', updateMaxScroll);
+  });
 </script>
 
 <T.PerspectiveCamera
@@ -42,8 +51,10 @@
 />
 
 <Float floatIntensity={0.5} floatingRange={[0,1]} speed={2}>
-  <T.Mesh position={[0, 1, 0]}>
+  <T.Mesh position={[0, 1, 0]} rotation={[randInt(0, y), randInt(0, y), randInt(0, y)]}>
     <T.BoxGeometry />
     <ImageMaterial url="/rainbowcat.jpg"/>
   </T.Mesh>
 </Float>
+
+<svelte:window bind:scrollY={y}/>
