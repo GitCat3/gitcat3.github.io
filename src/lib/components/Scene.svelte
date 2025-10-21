@@ -2,13 +2,27 @@
   import { T } from '@threlte/core'
   import { ContactShadows, Float, Grid, ImageMaterial} from '@threlte/extras'
   import { onMount } from 'svelte';
-    import { randInt } from 'three/src/math/MathUtils.js';
   let y = 0;
 
   let maxScroll = 0;
+  /** @type {any} */
+  let cameraRef;
+
+  const radius = Math.sqrt(10 * 10 + 10 * 10);
+  const orbitHeight = 10;
 
   function updateMaxScroll() {
     maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  }
+
+  $: if (cameraRef && y >= 0) {
+    const scrollProgress = maxScroll > 0 ? y / maxScroll : 0;
+    const angle = scrollProgress * Math.PI * 2;
+    
+    cameraRef.position.x = Math.cos(angle) * radius;
+    cameraRef.position.z = Math.sin(angle) * radius;
+    cameraRef.position.y = orbitHeight;
+    cameraRef.lookAt(0, 1, 0);
   }
 
   onMount(() => {
@@ -23,8 +37,10 @@
   position={[-10, 10, 10]}
   fov={15}
   on:create={({ ref }) => {
-    ref.lookAt(0, 1, 0)
+    cameraRef = ref;
+    ref.lookAt(0, 1, 0);
   }}
+  
 />
 
 <T.DirectionalLight
@@ -51,10 +67,10 @@
 />
 
 <Float floatIntensity={0.5} floatingRange={[0,1]} speed={2}>
-  <T.Mesh position={[0, 1, 0]} rotation={[randInt(0, y), randInt(0, y), randInt(0, y)]}>
+  <T.Mesh position={[0, 1, 0]}>
     <T.BoxGeometry />
     <ImageMaterial url="/rainbowcat.jpg"/>
   </T.Mesh>
 </Float>
 
-<svelte:window bind:scrollY={y}/>
+<svelte:window bind:scrollY={y} on:click={() => console.log(y)}/>
