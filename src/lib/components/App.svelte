@@ -27,11 +27,42 @@
     setTimeout(typeEffect, speed);
   }
 
-  onMount(typeEffect);
+  onMount(() => {
+    typeEffect();
+    
+    // Initialize GitHub embed after DOM is ready
+    // @ts-ignore
+    github_embed_repo.default('repo-details', 'GitCat3', 'Rust-Trig-Calculator', {
+      showProfile: true,
+      showStats: true,
+      theme: 'dark',
+      statsToShow: ['stars', 'forks', 'watchers', 'issues', 'pull_requests', 'contributors'],
+      component: 'card'
+    });
+
+    // @ts-ignore
+    github_embed_repo.default('repo-details2', 'GitCat3', 'Rust-Trig-Calculator', {
+      showProfile: true,
+      showStats: true,
+      theme: 'dark',
+      statsToShow: ['stars', 'forks', 'watchers', 'issues', 'pull_requests', 'contributors'],
+      component: 'card'
+    });
+
+    // @ts-ignore
+    github_embed_repo.default('repo-details3', 'GitCat3', 'Rust-Trig-Calculator', {
+      showProfile: true,
+      showStats: true,
+      theme: 'dark',
+      statsToShow: ['stars', 'forks', 'watchers', 'issues', 'pull_requests', 'contributors'],
+      component: 'card'
+    });
+  });
 </script>
 
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/github-embed-repo/dist/github_embed_repo.min.js"></script>
   <title>GitCat3's Awesome Website</title>
 </head>
 
@@ -56,9 +87,21 @@
       <ChevronsDown size=90px color="#a60000"/>
     </div>
   </section>
-  <h1 style="text-align: center; background: transparent; color: grey; margin: 50px 200px; position: relative;" >
-    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-  </h1>
+  
+  <div style="text-align: center; background: transparent; color: grey; margin: 50px auto; max-width: 900px; padding: 0 20px; position: relative; font-size: 18px; line-height: 1.6;" >
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
+
+  <div style="display: flex; gap: 20px; justify-content: center; margin: 50px auto; max-width: 1200px; flex-wrap: wrap;">
+    <div id="repo-details"></div>
+    <div id="repo-details2"></div>
+    <div id="repo-details3"></div>
+  </div>
 </body>
 
 <style lang="scss">
