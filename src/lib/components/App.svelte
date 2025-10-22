@@ -41,7 +41,7 @@
     });
 
     // @ts-ignore
-    github_embed_repo.default('repo-details2', 'GitCat3', 'Rust-Trig-Calculator', {
+    github_embed_repo.default('repo-details2', 'GitCat3', 'picalc', {
       showProfile: true,
       showStats: true,
       theme: 'dark',
@@ -50,7 +50,7 @@
     });
 
     // @ts-ignore
-    github_embed_repo.default('repo-details3', 'GitCat3', 'Rust-Trig-Calculator', {
+    github_embed_repo.default('repo-details3', 'GitCat3', 'Marlin', {
       showProfile: true,
       showStats: true,
       theme: 'dark',
@@ -97,10 +97,10 @@
     </p>
   </div>
 
-  <div style="display: flex; gap: 20px; justify-content: center; margin: 50px auto; max-width: 1200px; flex-wrap: wrap;">
-    <div id="repo-details"></div>
-    <div id="repo-details2"></div>
-    <div id="repo-details3"></div>
+  <div style="display: flex; gap: 20px; justify-content: center; margin: 50px auto; max-width: 1100px; flex-wrap: wrap; align-items: stretch;">
+    <div id="repo-details" style="flex: 1 1 350px; max-width: 400px;"></div>
+    <div id="repo-details2" style="flex: 1 1 350px; max-width: 400px;"></div>
+    <div id="repo-details3" style="flex: 1 1 350px; max-width: 400px;"></div>
   </div>
 </body>
 
@@ -154,10 +154,10 @@
   #welcometext::after {
     content: "";
     position: absolute;
-    top: 0;
+    top: 10%;
+    bottom: 10%;
     right: 0;
     width: 2px;
-    height: 1em;
     background-color: white;
     animation: blink 0.7s step-end infinite;
   }
