@@ -3,12 +3,14 @@
   import Scene from './Scene.svelte';
   import { onMount } from 'svelte';
   import ChevronsDown from 'lucide-svelte/icons/chevrons-down';
+  import { fade } from 'svelte/transition';
 
   let displayText = "";
   let index = 0;
   let isDeleting = false;
   let charIndex = 0;
   const texts = ["Websites", "Minecraft Mods", "Desktop Apps", "Other Random Coding Projects"];
+  let chevronOpacity = 1;
 
   function typeEffect() {
     const currentText = texts[index];
@@ -27,8 +29,25 @@
     setTimeout(typeEffect, speed);
   }
 
+  function handleScroll() {
+    const scrollPosition = window.scrollY;
+    const fadeStart = 0;
+    const fadeEnd = 300;
+    
+    if (scrollPosition <= fadeStart) {
+      chevronOpacity = 1;
+    } else if (scrollPosition >= fadeEnd) {
+      chevronOpacity = 0;
+    } else {
+      chevronOpacity = 1 - (scrollPosition - fadeStart) / (fadeEnd - fadeStart);
+    }
+  }
+
   onMount(() => {
     typeEffect();
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
     
     // Initialize GitHub embed after DOM is ready
     // @ts-ignore
@@ -57,6 +76,11 @@
       statsToShow: ['stars', 'forks', 'watchers', 'issues', 'pull_requests', 'contributors'],
       component: 'card'
     });
+
+    // Cleanup scroll listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   });
 </script>
 
@@ -83,8 +107,8 @@
         <img src="github.png" alt="GitCat3's Github page" width=64 height=64 style="transition: transform 0.3s ease;" />
       </a>
     </div>
-    <div id="canvas-overlay-chevrons-down">
-      <ChevronsDown size=90px color="#a60000"/>
+    <div id="canvas-overlay-chevrons-down" style="opacity: {chevronOpacity}; transition: opacity 0.1s ease-out;">
+      <ChevronsDown size=90px color="#a60000" />
     </div>
   </section>
   
