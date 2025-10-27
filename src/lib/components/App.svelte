@@ -114,10 +114,14 @@
   
   <div style="text-align: center; background: transparent; color: grey; margin: 50px auto; max-width: 900px; padding: 0 20px; position: relative; font-size: 18px; line-height: 1.6;" >
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Hello there! I am GitCat3, a software hobbyist with a passion for creating a multitude of things, including
+      websites, Minecraft mods, desktop apps, and more! I got my start with Python, and quickly branched out into C,
+      which enabled me to learn a multitude of other programming languages, such as Java and C#, much faster. Recently,
+      I have been diving into Rust, and two of the projects that are showcased below are built usint Rust. Additionally,
+      I am a maker outside of just programming; I also enjoy 3D printing and electronics. I have an Ender 5 Pro, and the other
+      repo showcased below is my custom Marlin firmware to use the Ender 5 Pro with a BLTouch sensor, as well as other mods I
+      have done for it. Feel free to explore my projects below, or press the little GitHub icon in the corner of this page to
+      explore my full GitHub profile!
     </p>
   </div>
 
