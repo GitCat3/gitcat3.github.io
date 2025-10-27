@@ -10,7 +10,7 @@
   let isDeleting = false;
   let charIndex = 0;
   const texts = ["Websites", "Minecraft Mods", "Desktop Apps", "Other Random Coding Projects"];
-  let chevronOpacity = 1;
+  let showChevron = true;
 
   function typeEffect() {
     const currentText = texts[index];
@@ -31,16 +31,10 @@
 
   function handleScroll() {
     const scrollPosition = window.scrollY;
-    const fadeStart = 0;
-    const fadeEnd = 300;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const fadeThreshold = maxScroll * 0.1; // Fade out at 10% of max scroll
     
-    if (scrollPosition <= fadeStart) {
-      chevronOpacity = 1;
-    } else if (scrollPosition >= fadeEnd) {
-      chevronOpacity = 0;
-    } else {
-      chevronOpacity = 1 - (scrollPosition - fadeStart) / (fadeEnd - fadeStart);
-    }
+    showChevron = scrollPosition < fadeThreshold;
   }
 
   onMount(() => {
@@ -107,8 +101,12 @@
         <img src="github.png" alt="GitCat3's Github page" width=64 height=64 style="transition: transform 0.3s ease;" />
       </a>
     </div>
-    <div id="canvas-overlay-chevrons-down" style="opacity: {chevronOpacity}; transition: opacity 0.1s ease-out;">
-      <ChevronsDown size=90px color="#a60000" />
+    <div id="canvas-overlay-chevrons-down">
+      {#if showChevron}
+        <div transition:fade={{ duration: 300 }}>
+          <ChevronsDown size=90px color="#a60000" />
+        </div>
+      {/if}
     </div>
   </section>
   
